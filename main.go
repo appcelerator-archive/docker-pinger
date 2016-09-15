@@ -18,13 +18,11 @@ func main() {
 
 	addr := fmt.Sprintf(":%s", port)
 
-	http.HandleFunc("/ping", pingHandler)
+	http.HandleFunc("/ping", func(w http.ResponseWriter, req *http.Request) {
+		log.Println(req.URL)
+		fmt.Fprintln(w, "pong")
+	})
 
 	fmt.Printf("listening on %s\n", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
-}
-
-func pingHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println(req.URL)
-	fmt.Fprintln(w, "pong")
 }
