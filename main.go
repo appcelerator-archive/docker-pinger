@@ -7,22 +7,19 @@ import (
 	"os"
 )
 
-const defPort = "3000"
-
-var port = os.Getenv("PORT")
+const port = ":3000"
 
 func main() {
-	if port == "" {
-		port = defPort
-	}
-
-	addr := fmt.Sprintf(":%s", port)
-
 	http.HandleFunc("/ping", func(w http.ResponseWriter, req *http.Request) {
-		log.Println(req.URL)
-		fmt.Fprintln(w, "pong")
+		hostname, err := os.Hostname()
+		if err != nil {
+			panic(err)
+		}
+
+		response := fmt.Sprintf("[%s] pong", hostname)
+		fmt.Fprintln(w, response)
 	})
 
-	fmt.Printf("listening on %s\n", addr)
-	log.Fatal(http.ListenAndServe(addr, nil))
+	fmt.Printf("listening on %s\n", port)
+	log.Fatal(http.ListenAndServe(port, nil))
 }

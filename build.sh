@@ -3,4 +3,6 @@
 #
 set -e
 ./make.sh
-docker build -t appcelerator/pinger .
+docker build -t appcelerator/pinger . \
+	&& docker tag appcelerator/pinger appcelerator/pinger:$(cat VERSION | sed 's/[:space:]*$//')
+
