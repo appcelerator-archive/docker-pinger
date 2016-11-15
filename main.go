@@ -16,6 +16,7 @@ func main() {
 			panic(err)
 		}
 
+		w.Header().Set("Connection", "close")
 		response := fmt.Sprintf("[%s] pong", hostname)
 		fmt.Fprintln(w, response)
 	})
