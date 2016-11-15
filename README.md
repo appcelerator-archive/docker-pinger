@@ -31,7 +31,8 @@ Then test
 Each time you curl, you should see a different hostname in the brackets of the response
 as Docker automatically load balances requests among all the service replicas.
 
-NOTE: Because HTTP/1.1 defaults to persistent connections, to assure the same result for
+### Note
+Because HTTP/1.1 defaults to persistent connections, to assure the same result for
 demo purposes in the browser, the `ping` service closes the HTTP connection with each response
 by setting `Connection: close` in the response header.
 
