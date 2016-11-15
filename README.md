@@ -40,4 +40,7 @@ as Docker automatically load balances requests among all the service replicas.
 
 `run.sh` - convenience script for `docker run ...`
 
-`service-create.sh` - convenience script for `docker service create ...`
+`service-start.sh` - convenience script for `docker service create ...`
+
+`service-stop.sh` - convenience script for `docker service rm ...`
+
