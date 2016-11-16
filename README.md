@@ -1,6 +1,6 @@
 # appcelerator/pinger
 
-Simple service for testing purposes. Responds with `pong` to a `GET` request at: `http://<host>:<port>/ping`, and logs to `stdout`.
+Simple service for demo purposes. Responds with `pong` to a `GET` request at: `http://<host>:<port>/ping`, and logs to `stdout`.
 
 ## Running pinger
 
