@@ -19,7 +19,7 @@ func main() {
 		// Since HTTP/1.1 defaults to persistent connections, ensure we close the
 		// connection with the response to make it easier to demo automatic
 		// round-robin load balancing when refreshing in a browser
-		// (this isn't an issue for when using curl since it automatically closes
+		// (this isn't an issue when using curl since it automatically closes
 		// the connection).
 		w.Header().Set("Connection", "close")
 		response := fmt.Sprintf("[%s] pong", hostname)
